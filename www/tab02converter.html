@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Cotação Dólar</title>
+    <LINK REL="stylesheet" HREF="css/bootstrap.css" />
+    <STYLE>
+        .center-txt {
+            text-align: center;
+            color: black;
+            width: 90px;
+            padding: 4px;
+            margin: 0;
+            border: 0;
+        }
+
+        .button-selected {
+            background-color: #343a40;
+            color: white;
+            border-radius: 15px;
+        }
+
+        .width-button-bar {
+            text-align: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-right: 0;
+            margin-left: 0;
+
+        }
+
+        .bottom-button-bar {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+        }
+
+        .icon-font {
+            font-size: 40px;
+        }
+
+        main {
+            padding-top: 56px;
+            padding-bottom: 50px;
+            align-items: center;
+        }
+        
+    </STYLE>
+</HEAD>
+<BODY lang="pt-br">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <a class="navbar-brand" href="#">&#x1F981; FTT EC9 LP3 N2!!!</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <div class="navbar-nav float-right text-right pr-3">
+                <a class="nav-item nav-link" href="index.html">Splash</a>
+                <a class="nav-item nav-link" href="http://www.fundacaosalvadorarena.org.br/" target="newpage">CEFSA</a>
+                <a class="nav-item nav-link" href="about.html">Sobre</a>
+            </div>
+        </div>
+    </nav>
+    <main class="container" align="center" >
+
+        <h1><span class="badge badge-success">Cotação atual US$</span></h1>
+        <hr>
+        <div class="container" style="max-width:250px;">
+            <label>Selecione uma moeda</label>
+                <select class="form-control"  style="text-align:center;" onchange="getCambio();" id="moeda"></select>
+        <br>
+            <label>Última Cotação</label>
+                <input class="form-control" id="cambio" type="number" readonly/><br>
+        </div>
+                
+    <script>
+            window.onload = function () {
+                getMoedas();
+            }
+        
+            function getMoedas() {
+                var url = "https://api.exchangerate-api.com/v5/latest"
+                fetch(url)
+                    .then(request => request.text())
+                    .then(data => {
+                        data = JSON.parse(data);
+                        popularSelectMoedas(convert(data.rates));
+                        getCambio();
+                    });
+            }
+        
+            function popularSelectMoedas(moedas) {
+                var options = "";
+                moedas.forEach(item => {
+                    options += `<option value="${item.value}">${item.name}</option>`;
+                });
+                document.getElementById("moeda").innerHTML = options;
+            }
+        
+            function getCambio() {
+                var valorCambio = document.getElementById("moeda").value;
+                document.getElementById("cambio").value = valorCambio;
+            }
+        
+            function convert(obj) {
+                return Object.keys(obj).map(key => ({
+                    name: key,
+                    value: obj[key]
+                }));
+            }
+    </script>
+
+         <p><a href="https://github.com/public-apis/public-apis" target="_apis" aligntext="center">Lista de APIs públicas</a></p>
+    </main>
+    <nav class="navbar fixed-bottom navbar-light bg-light width-button-bar">
+        <div class="row w-100 bottom-button-bar">
+            <div class="col-sm center-txt"><b onclick='window.location="tab01cripto.html"'>Criptomoeda<br><span
+                        class="icon-font">&#x1f4f0;</span></b>
+            </div>
+            <div class="col-sm center-txt button-selected"><b onclick='window.location="tab02converter.html"'>Cotação Dólar<br><span class="icon-font">&#x1f4cc;</span></b>
+            </div>
+            </div>
+        </div>
+    </nav>
+    
+
+
+
+</BODY>
+<!-- carga de scripts do Bootstrap, JQuery, Popper -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+    integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+    integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+    crossorigin="anonymous"></script>
+</HTML>

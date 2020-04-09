@@ -1,0 +1,4 @@
+#Tue Apr 07 08:08:13 BRT 2020
+base.0=/home/abilio/Área de Trabalho/FTT-Cordova-LP3-Template-master/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
