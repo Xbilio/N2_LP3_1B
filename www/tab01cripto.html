@@ -84,7 +84,7 @@
 			    	var resultado = JSON.parse(this.responseText);
 			  
 				    console.log(resultado);
-				        var imghtml ="<hr><br><h1>"+"<img src='"+resultado.image.small+"'>"+resultado.name+"</h1></br></hr>";
+				        var imghtml ="<hr><br><h1><br>"+"<img src='"+resultado.image.small+"'>"+resultado.name+"</h1></br></hr>";
                         var pricehtml = "<h2>Price US$<br>"+resultado.tickers[0].last+"</h2>";
                         //var nomehtml = "<h1>"+resultado.name+" - "+resultado.symbol+" - "+pricehtml+"</h1>";
                         var marketCap = "<h3>MarketCap US$<br>"+resultado.market_data.market_cap.usd+"</h3>";
