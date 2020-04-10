@@ -85,14 +85,20 @@
 			  
 				    console.log(resultado);
 				        var imghtml = "<h1>"+resultado.name+"</h1>"+"<img src='"+resultado.image.small+"' >";
-                        var nomehtml = "<h1>"+resultado.name+" - "+resultado.symbol+"</h1>";
+                        var pricehtml = "Price US$ "+resultado.tickers[0].last;
+                        var nomehtml = "<h1>"+resultado.name+" - "+resultado.symbol+" - "+pricehtml+"</h1>";
+                        
+                        var website = "<h3><a href="+resultado.links.homepage[0]+">"+resultado.name+" Website Oficial</a></h3>";
                         var historyhtml = "<blockquote>"+ resultado.description.pt+"</blockquote>";
-                    	     	
-				    document.getElementById("conteudo").innerHTML = imghtml + nomehtml + historyhtml;
+                        
+                        document.getElementById("conteudo").innerHTML = imghtml + nomehtml + historyhtml + pricehtml + website;
 				}
 			  };
 			  xhttp.open("GET", "https://api.coingecko.com/api/v3/coins/" +selectedValue );
               xhttp.send();
+            
+
+
               
               function selectCripto(moedas) {
                 var options = "";
