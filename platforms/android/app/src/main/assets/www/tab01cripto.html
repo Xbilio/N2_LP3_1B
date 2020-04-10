@@ -48,7 +48,7 @@
      <SCRIPT></SCRIPT>
 </HEAD>
 <BODY onload="reloadPage();" lang="pt">
-    <div id="conteudo" align="center" width="75vw">               
+    <div class="container" id="conteudo" align="center" width="75vw">               
     </div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,14 +85,20 @@
 			  
 				    console.log(resultado);
 				        var imghtml = "<h1>"+resultado.name+"</h1>"+"<img src='"+resultado.image.small+"' >";
-                        var nomehtml = "<h1>"+resultado.name+" - "+resultado.symbol+"</h1>";
+                        var pricehtml = "Price US$ "+resultado.tickers[0].last;
+                        var nomehtml = "<h1>"+resultado.name+" - "+resultado.symbol+" - "+pricehtml+"</h1>";
+                        
+                        var website = "<h3><a href="+resultado.links.homepage[0]+">"+resultado.name+" Website Oficial</a></h3>";
                         var historyhtml = "<blockquote>"+ resultado.description.pt+"</blockquote>";
-                    	     	
-				    document.getElementById("conteudo").innerHTML = imghtml + nomehtml + historyhtml;
+                        
+                        document.getElementById("conteudo").innerHTML = imghtml + nomehtml + historyhtml + pricehtml + website;
 				}
 			  };
 			  xhttp.open("GET", "https://api.coingecko.com/api/v3/coins/" +selectedValue );
               xhttp.send();
+            
+
+
               
               function selectCripto(moedas) {
                 var options = "";
@@ -116,6 +122,7 @@
     </nav>
     <main class="container" id="history">
     </main>
+
     <nav class="navbar fixed-bottom navbar-light bg-light width-button-bar">
         <nav class="navbar fixed-bottom navbar-light bg-light width-button-bar">
             <div class="row w-100 bottom-button-bar">
@@ -124,13 +131,10 @@
                 </div>
                 <div class="col-sm center-txt"><b onclick='window.location="tab02converter.html"'>Cotação Dólar<br><span class="icon-font">&#x1f4cc;</span></b>
                 </div>
-                <div class="col-sm center-txt"><b onclick='window.location="tab03feature.html"'>Feature 3<br><span
-                            class="icon-font">&#x1F4DD;</span></b>
-                </div>
-                <div class="col-sm center-txt"><b onclick='window.location="tab04feature.html"'>Feature 4<br><span
-                            class="icon-font">&#x1F981;</span></b>
-                </div>
+               
             </div>
+            </nav>
+            
     </nav>
 </BODY>
 <strap>

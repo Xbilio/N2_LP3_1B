@@ -1,32 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/x4n/work/FTT/LP3/CODE/fttnews/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/home/xbilio/N2_LP3_1B/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
                 {
-                    "source": "/x4n/work/FTT/LP3/CODE/fttnews/platforms/android/app/src/main/res/values/strings.xml",
-                    "from": {
-                        "startLines": "4,2,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "162,55,103",
-                        "endColumns": "63,47,58",
-                        "endOffsets": "221,98,157"
-                    },
-                    "to": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,119,167",
-                        "endColumns": "63,47,58",
-                        "endOffsets": "114,162,221"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "/home/abilio/Área de Trabalho/FTT-Cordova-LP3-Template-master/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
-            "map": [
-                {
-                    "source": "/home/abilio/Área de Trabalho/FTT-Cordova-LP3-Template-master/platforms/android/app/src/main/res/values/strings.xml",
+                    "source": "/home/xbilio/N2_LP3_1B/platforms/android/app/src/main/res/values/strings.xml",
                     "from": {
                         "startLines": "4,2,3",
                         "startColumns": "4,4,4",
